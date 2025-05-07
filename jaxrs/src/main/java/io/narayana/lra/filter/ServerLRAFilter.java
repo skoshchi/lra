@@ -115,6 +115,8 @@ public class ServerLRAFilter implements ContainerRequestFilter, ContainerRespons
         // Note that this filter uses abortWith instead of throwing exceptions on encountering exceptional
         // conditions. This facilitates async because filters for asynchronous JAX-RS methods are
         // not allowed to throw exceptions.
+
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!I AM IN THE FILTER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         Method method = resourceInfo.getResourceMethod();
         MultivaluedMap<String, String> headers = containerRequestContext.getHeaders();
         LRA.Type type = null;
