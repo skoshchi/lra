@@ -118,9 +118,14 @@ public class ServerLRAFilter implements ContainerRequestFilter, ContainerRespons
 
         System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!I AM IN THE FILTER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         Method method = resourceInfo.getResourceMethod();
+
         MultivaluedMap<String, String> headers = containerRequestContext.getHeaders();
+        System.out.println("headers= " + headers);
+
         LRA.Type type = null;
+
         LRA transactional = AnnotationResolver.resolveAnnotation(LRA.class, method);
+
         URI lraId;
         URI newLRA = null;
         Long timeout = null;
@@ -162,6 +167,8 @@ public class ServerLRAFilter implements ContainerRequestFilter, ContainerRespons
                 || AnnotationResolver.isAnnotationPresent(Forget.class, method)
                 || AnnotationResolver.isAnnotationPresent(AfterLRA.class, method);
 
+        System.out.println("******************************");
+        System.out.println("endAnnotation= " + endAnnotation);
         if (headers.containsKey(LRA_HTTP_CONTEXT_HEADER)) {
             try {
                 incomingLRA = new URI(Current.getLast(headers.get(LRA_HTTP_CONTEXT_HEADER)));
