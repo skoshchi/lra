@@ -120,7 +120,6 @@ public class ServerLRAFilter implements ContainerRequestFilter, ContainerRespons
         Method method = resourceInfo.getResourceMethod();
 
         MultivaluedMap<String, String> headers = containerRequestContext.getHeaders();
-        System.out.println("headers= " + headers);
 
         LRA.Type type = null;
 
@@ -410,6 +409,7 @@ public class ServerLRAFilter implements ContainerRequestFilter, ContainerRespons
                             toURI(terminateURIs.get(LEAVE)),
                             toURI(terminateURIs.get(AFTER)),
                             toURI(terminateURIs.get(STATUS)));
+                    System.out.println("compensatorLink = " + compensatorLink);
                     StringBuilder previousParticipantData = new StringBuilder();
 
                     // store the registration link in case the participant wants to associate data with the enlistment in the LRA

@@ -298,7 +298,7 @@ public class LRAService {
         lraTrace(lraId, "end LRA");
 
         LongRunningAction transaction = getTransaction(lraId);
-
+         System.out.println("=====================================  transaction" + transaction);
         if (transaction.getLRAStatus() != LRAStatus.Active && !transaction.isRecovering() && transaction.isTopLevel()) {
             String errorMsg = String.format("%s: LRA is closing or closed: endLRA", lraId);
             throw new WebApplicationException(errorMsg, Response.status(Response.Status.PRECONDITION_FAILED)
