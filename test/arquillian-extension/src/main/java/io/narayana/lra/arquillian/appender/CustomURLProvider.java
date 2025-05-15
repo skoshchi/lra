@@ -19,7 +19,7 @@ public class CustomURLProvider implements ResourceProvider {
     @Override
     public Object lookup(ArquillianResource resource, Annotation... qualifiers) {
         try {
-            return URI.create("http://localhost:8081/tck-test").toURL();
+            return URI.create("http://localhost:8081/tck/").toURL();
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
