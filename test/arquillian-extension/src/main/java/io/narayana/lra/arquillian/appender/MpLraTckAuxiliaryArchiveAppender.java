@@ -31,6 +31,7 @@ import java.util.Optional;
  */
 public class MpLraTckAuxiliaryArchiveAppender implements AuxiliaryArchiveAppender {
 
+
     @Inject
     Instance<ArquillianDescriptor> arquillianDescriptorInstance;
 
@@ -64,7 +65,7 @@ public class MpLraTckAuxiliaryArchiveAppender implements AuxiliaryArchiveAppende
                         "io.narayana.lra.client.internal",
                         "org.eclipse.microprofile.lra")
                 .addPackages(true,
-                        "io.narayana.lra.client.internal.proxy",
+//                        "io.narayana.lra.client.internal.proxy",
                         "org.eclipse.microprofile.lra.annotation")
                 // registration of LRACDIExtension as Weld extension to be booted-up
 //                .addAsResource("META-INF/services/jakarta.enterprise.inject.spi.Extension")
