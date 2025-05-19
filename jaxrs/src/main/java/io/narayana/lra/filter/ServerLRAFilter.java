@@ -116,7 +116,6 @@ public class ServerLRAFilter implements ContainerRequestFilter, ContainerRespons
         // conditions. This facilitates async because filters for asynchronous JAX-RS methods are
         // not allowed to throw exceptions.
 
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!I AM IN THE FILTER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         Method method = resourceInfo.getResourceMethod();
 
         MultivaluedMap<String, String> headers = containerRequestContext.getHeaders();
@@ -166,8 +165,6 @@ public class ServerLRAFilter implements ContainerRequestFilter, ContainerRespons
                 || AnnotationResolver.isAnnotationPresent(Forget.class, method)
                 || AnnotationResolver.isAnnotationPresent(AfterLRA.class, method);
 
-        System.out.println("******************************");
-        System.out.println("endAnnotation= " + endAnnotation);
         if (headers.containsKey(LRA_HTTP_CONTEXT_HEADER)) {
             try {
                 incomingLRA = new URI(Current.getLast(headers.get(LRA_HTTP_CONTEXT_HEADER)));
@@ -409,7 +406,6 @@ public class ServerLRAFilter implements ContainerRequestFilter, ContainerRespons
                             toURI(terminateURIs.get(LEAVE)),
                             toURI(terminateURIs.get(AFTER)),
                             toURI(terminateURIs.get(STATUS)));
-                    System.out.println("compensatorLink = " + compensatorLink);
                     StringBuilder previousParticipantData = new StringBuilder();
 
                     // store the registration link in case the participant wants to associate data with the enlistment in the LRA

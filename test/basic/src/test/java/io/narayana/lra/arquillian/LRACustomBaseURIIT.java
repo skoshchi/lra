@@ -56,7 +56,6 @@ public class LRACustomBaseURIIT extends TestBase {
             .request()
             .get()) {
 
-            System.out.println(response.getHeaderString("Link"));
             assertTrue("The base URI was not overridden by the configuration",
                 response.getHeaderString("Link").contains("http://example.com/compensate?method=jakarta.ws.rs.PUT"));
         }
